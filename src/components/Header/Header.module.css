@@ -1,0 +1,13 @@
+
+.header {
+    grid-area: h;
+    border-bottom: ridge black;
+}
+
+.header a {
+    display: block;
+}
+
+.logo {
+    width: 10%;
+}

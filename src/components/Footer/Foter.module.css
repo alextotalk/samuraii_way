@@ -1,0 +1,12 @@
+
+.footer {
+    grid-area: f;
+    border-top: ridge black;
+}
+
+.footer > a {
+    text-decoration: none;
+    padding: 3px;
+    color: black;
+}
+

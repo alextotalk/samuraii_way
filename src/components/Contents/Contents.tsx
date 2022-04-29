@@ -1,13 +1,17 @@
 import React from "react";
-import img from "../../images/Water.jpg";
 import m from "./Contents.module.css"
 import {Posts} from "./Posts/Posts";
+import {Dialogs} from "./Dialogs/Dialogs";
+import {Route} from "react-router-dom";
 
 export function Contents() {
     return (
         <div className={m.Contents}>
-            <div className={m.imgBlock}><img src={img} alt=""/></div>
-            <Posts/>
+            <Route component={Posts} path='/posts'></Route>
+            <Route component={Dialogs} path='/dialogs'></Route>
         </div>
+    // <div className={m.Contents}>
+    //     <Dialogs/>
+    //     </div>
     );
 }

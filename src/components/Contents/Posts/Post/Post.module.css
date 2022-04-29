@@ -1,10 +1,12 @@
 .post   {
     display: flex;
+    align-items: center;
 
 }
 
 .post > img {
     border-radius: 50%;
     height: 50px;
-    width: 50px
+    width: 50px;
+    filter: drop-shadow(1px 2px 3px black);
 }

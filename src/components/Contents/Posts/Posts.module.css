@@ -1,0 +1,10 @@
+.posts>img {
+    height: 5vmax;
+    width: 71vmax;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+
+}
+/*.posts{*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/

@@ -7,7 +7,7 @@ export function Post(props:any) {
         <div className={m.post}>
             <img src={i} alt=""/>
             <div>{props.massager} </div>
-            <div> {props.liksCount} </div>
+            <div>&nbsp;&nbsp;&nbsp;<span>Likes-</span>{props.liksCount} </div>
         </div>
     );
 }

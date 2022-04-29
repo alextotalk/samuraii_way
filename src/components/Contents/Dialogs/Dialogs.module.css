@@ -1,0 +1,38 @@
+
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    height: 100%;
+}
+
+.dialogsItem {
+    padding: 1vh;
+    background-color: lightgray;
+}
+
+.ItemsDialogsMassager a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.ItemsDialogsMassager a:hover {
+    color: black
+}
+.ItemsDialogsMassager a:active {
+    color: white;
+}
+
+.ItemsDialogsMassager {
+    padding: 2vh;
+}
+
+.dialogsMassager {
+    padding: 1vh;
+
+}
+
+.dialogsMassagers {
+    padding: 1vh;
+}
+

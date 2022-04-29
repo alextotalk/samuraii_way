@@ -1,15 +1,6 @@
 
 .Contents {
-     grid-area: c;
+    grid-area: c;
 }
-.imgBlock{
-    /*height: 150px;*/
-    /*width: 150px;*/
-    /*border: solid 2px;*/
-}
-.Contents img {
-    height: 5vmax;
-    width: 71vmax;
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
-}
+
+

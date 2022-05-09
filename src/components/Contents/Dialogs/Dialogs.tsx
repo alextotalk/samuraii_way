@@ -10,19 +10,19 @@ export  type DialogsItemType = {
     id: string
     name: string
 }
+type DialogsPagePropsType = {
+    dialogsPage:  DialogsPageType
+}
+type DialogsPageType = {
+    messages: MessagesType[]
+    dialogsItem: DialogsItemType[]
+}
 
-export function Dialogs() {
-    let messages: MessagesType[] = [{id: '1', massager: 'Hi'},
-        {id: '2', massager: 'Hi'},
-        {id: '3', massager: 'Goodbye'}]
-    let dialogsItem: DialogsItemType[] = [
-        {id: '1', name: 'Viva'},
-        {id: '2', name: 'Alex'},
-        {id: '3', name: 'Mila'},]
+export function Dialogs(props: DialogsPagePropsType) {
 
     return (<div className={m.dialogs}>
-        <DialogsItems dialogsItem={dialogsItem}/>
-        <DialogsMessages messages={messages}/>
+        <DialogsItems dialogsItem={props.dialogsPage.dialogsItem}/>
+        <DialogsMessages messages={props.dialogsPage.messages}/>
 
     </div>);
 }

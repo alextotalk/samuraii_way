@@ -1,10 +1,15 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import m from "./TextArea.module.css"
 
-export function TextArea() {
+type TextAreaPropsType = {
+    getNewPost: (e: ChangeEvent<HTMLTextAreaElement>) => void
+}
+
+export function TextArea(props: TextAreaPropsType) {
+
     return (
         <div className={m.textArea}>
-            <textarea name="newPost" id="newPost" ></textarea>
+            <textarea name="newPost" id="newPost" onChange={props.getNewPost}></textarea>
         </div>
     );
 }

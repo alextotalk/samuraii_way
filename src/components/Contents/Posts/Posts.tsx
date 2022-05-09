@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import m from "./Posts.module.css"
 import {Post} from "./Post/Post";
 import {Button} from "./Button/Button";
@@ -11,22 +11,30 @@ export  type PostType = {
     likesCount: string
 }
 
-export function Posts() {
-    let posts: PostType[] = [
-        {id: '1', massager: 'Hi!!!', likesCount: '23'},
-        {id: '2', massager: 'Hello!!!', likesCount: '23'},
-        {id: '3', massager: 'How are you!!!', likesCount: '23'},
-    ]
+type PostsPropsType = {
+    posts: PostType[]
+}
+
+export function Posts(props: PostsPropsType) {
+    let getNewPost=(e:ChangeEvent<HTMLTextAreaElement>)=>{
+        const newPost=e.currentTarget.value
+        return newPost
+    }
+    let addNewPost=( getNewPost:() => void)=>{
+        let newPost=getNewPost
+        return newPost
+    }
+
     return (
         <div className={m.posts}>
             <div className={m.posts}><img src={Water} alt=""/></div>
             <div>
-                <TextArea/>
+                <TextArea getNewPost={getNewPost} />
             </div>
             <div>
-                <Button name={"Send"}/>
+                <Button addNewPost={addNewPost} name={"Send"}/>
             </div>
-            {posts.map(post=><Post post={post}/>)}
+            {props.posts.map(post => <Post post={post}/>)}
         </div>
     );
 }

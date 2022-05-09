@@ -10,8 +10,6 @@ export function Contents() {
             <Route component={Posts} path='/posts'></Route>
             <Route component={Dialogs} path='/dialogs'></Route>
         </div>
-    // <div className={m.Contents}>
-    //     <Dialogs/>
-    //     </div>
+
     );
 }

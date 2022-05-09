@@ -5,7 +5,18 @@ import {Button} from "./Button/Button";
 import {TextArea} from "./TextArea/TextArea";
 import Water from "../../../images/Water.jpg";
 
+export  type PostType = {
+    id: string
+    massager: string
+    likesCount: string
+}
+
 export function Posts() {
+    let posts: PostType[] = [
+        {id: '1', massager: 'Hi!!!', likesCount: '23'},
+        {id: '2', massager: 'Hello!!!', likesCount: '23'},
+        {id: '3', massager: 'How are you!!!', likesCount: '23'},
+    ]
     return (
         <div className={m.posts}>
             <div className={m.posts}><img src={Water} alt=""/></div>
@@ -15,8 +26,7 @@ export function Posts() {
             <div>
                 <Button name={"Send"}/>
             </div>
-            <Post massager={"Hi!!!"} liksCount={"23"}/>
-            <Post massager={"Hi my friend !!!"} liksCount={"2"}/>
+            {posts.map(post=><Post post={post}/>)}
         </div>
     );
 }

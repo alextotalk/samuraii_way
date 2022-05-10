@@ -1,6 +1,6 @@
 import m from "../Dialogs.module.css";
 import React from "react";
-import {MessagesType} from "../Dialogs";
+import {MessagesType} from "../../../../index";
 
 type PropsMessages = {
     messages: MessagesType[]

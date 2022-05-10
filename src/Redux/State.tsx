@@ -1,6 +1,4 @@
-import {PostType} from "../components/Contents/Posts/Posts";
-import {DialogsItemType, MessagesType} from "../components/Contents/Dialogs/Dialogs";
-import {StoreType} from "../index";
+ import {StoreType} from "../index";
 
 export let store: StoreType = {
     profilePage: {
@@ -21,5 +19,5 @@ export let store: StoreType = {
             {id: '3', name: 'Mila'},
         ]
     },
-    sidebar:{}
+    // sidebar:{}
 }

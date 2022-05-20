@@ -12,7 +12,8 @@ type ContentsPropsType = {
 export function Contents(props: ContentsPropsType) {
     return (
         <div className={m.Contents}>
-            <Route render={() => <Posts posts={props.state.profilePage.posts}/>} path='/posts'></Route>
+            <Route render={() => <Posts posts={props.state.profilePage.posts}/>}
+                   path='/posts'></Route>
             <Route render={() => <Dialogs dialogs={props.state.dialogsPage}/>}
                    path='/dialogs'></Route>
         </div>

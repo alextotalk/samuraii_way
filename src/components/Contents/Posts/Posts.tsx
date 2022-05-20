@@ -16,25 +16,27 @@ type PostsPropsType = {
 }
 
 export function Posts(props: PostsPropsType) {
-    let getNewPost=(e:ChangeEvent<HTMLTextAreaElement>)=>{
-        const newPost=e.currentTarget.value
+    let newPost = ''
+    let getNewPost = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        debugger
+        newPost = e.currentTarget.value
         return newPost
     }
-    let addNewPost=( getNewPost:() => void)=>{
-        let newPost=getNewPost
-        return newPost
+    let addNewPost = (getNewPost: () => void) => {
+
+        return alert(newPost)
     }
 
     return (
         <div className={m.posts}>
             <div className={m.posts}><img src={Water} alt=""/></div>
             <div>
-                <TextArea getNewPost={getNewPost} />
+                <TextArea getNewPost={getNewPost}/>
             </div>
             <div>
                 <Button addNewPost={addNewPost} name={"Send"}/>
             </div>
-            {props.posts.map(post => <Post post={post}/>)}
+            {props.posts.map((post, i) => <Post key={i} post={post}/>)}
         </div>
     );
 }

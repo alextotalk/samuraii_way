@@ -4,14 +4,12 @@ import {Header} from "./components/Header/Header";
 import {List} from "./components/NavBar/List";
 import {Footer} from "./components/Footer/Footer";
 import {Contents} from "./components/Contents/Contents";
-import {BrowserRouter} from "react-router-dom";
 import {StoreType} from "./index";
 type AppPropsType ={
     state:StoreType
 }
 function App(props:AppPropsType) {
     return (
-        <BrowserRouter>
         <div className="app-wrapper">
             <div className="s"></div>
             <Header/>
@@ -20,7 +18,6 @@ function App(props:AppPropsType) {
             <Footer/>
             <div className="x"></div>
          </div>
-        </BrowserRouter>
     );
 }
 

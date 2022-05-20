@@ -6,7 +6,7 @@ export function List() {
         <div className={m.widget}>
              <ul>
                 <li><NavLink   to="/posts" activeClassName={m.active}>Profile</NavLink></li>
-                <li><NavLink exact to="/dialogs">Massager</NavLink></li>
+                <li><NavLink   to="/dialogs">Massager</NavLink></li>
                 <li><a href="">News</a></li>
                 <li><a href="">Music</a></li>
                 <li><a href="">Settings</a></li>

@@ -3,13 +3,14 @@ import m from "./TextArea.module.css"
 
 type TextAreaPropsType = {
     getNewPost: (e: ChangeEvent<HTMLTextAreaElement>) => void
+    newText:string
 }
 
 export function TextArea(props: TextAreaPropsType) {
 
     return (
         <div className={m.textArea}>
-            <textarea name="newPost" id="newPost" onChange={props.getNewPost}></textarea>
+            <textarea value={props.newText} name="newPost" id="newPost" onChange={props.getNewPost}></textarea>
         </div>
     );
 }

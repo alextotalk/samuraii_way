@@ -10,7 +10,7 @@ export function DialogsItems(props:DialogsItemsPropsType) {
         <div className={m.dialogsItem}>
             {props.dialogsItem.map((e)=>{
 
-                return <ItemsDialogsUser name={e.name} id={e.id}/>
+                return <ItemsDialogsUser key={e.id} name={e.name} id={e.id}/>
 
             })}
          </div>

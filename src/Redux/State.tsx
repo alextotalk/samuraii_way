@@ -1,4 +1,6 @@
- import {StoreType} from "../index";
+import {StoreType} from "../index";
+import {v1} from "uuid";
+import {renderTree} from "../render";
 
 export let store: StoreType = {
     profilePage: {
@@ -6,7 +8,8 @@ export let store: StoreType = {
             {id: '1', massager: 'Hi!!!', likesCount: '23'},
             {id: '2', massager: 'Hello!!!', likesCount: '23'},
             {id: '3', massager: 'How are you!!!', likesCount: '23'},
-        ]
+        ],
+        newPostText:''
     },
     dialogsPage: {
         messages: [{id: '1', massager: 'Hi'},
@@ -19,5 +22,15 @@ export let store: StoreType = {
             {id: '3', name: 'Mila'},
         ]
     },
-    // sidebar:{}
+
+}
+export let addPost = ( ) => {
+    let newPost = {id: v1(), massager: store.profilePage.newPostText, likesCount: '443'}
+    store.profilePage.posts.push(newPost)
+    store.profilePage.newPostText=''
+    renderTree(store)
+}
+export let updateNewPostText = (newText: string) => {
+     store.profilePage.newPostText=newText
+    renderTree(store)
 }

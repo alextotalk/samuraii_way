@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import {PostType} from "./components/Contents/Posts/Posts";
+
+import {renderTree} from "./render";
 import {store} from "./Redux/State";
-import {BrowserRouter} from "react-router-dom";
 
 export  type MessagesType = {
     id: string
@@ -22,17 +21,13 @@ export type DialogsPageType = {
 }
 export type ProfilePageType = {
     posts: PostType[]
+    newPostText:string
+
 }
 export type StoreType = {
     profilePage: ProfilePageType
     dialogsPage: DialogsPageType
-    // sidebar:{}
+
 }
 
-
-ReactDOM.render(
-    <BrowserRouter>
-        <App state={store}/>
-    </BrowserRouter>,
-    document.getElementById('root')
-);
+renderTree( store )

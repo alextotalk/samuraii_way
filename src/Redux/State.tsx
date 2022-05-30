@@ -1,7 +1,6 @@
 import {StoreType} from "../index";
 import {v1} from "uuid";
-import {renderTree} from "../render";
-
+let rerenderEntireTree=(store: StoreType)=>{ }
 export let store: StoreType = {
     profilePage: {
         posts: [
@@ -24,13 +23,16 @@ export let store: StoreType = {
     },
 
 }
-export let addPost = ( ) => {
+export const addPost = ( ) => {
     let newPost = {id: v1(), massager: store.profilePage.newPostText, likesCount: '443'}
     store.profilePage.posts.push(newPost)
     store.profilePage.newPostText=''
-    renderTree(store)
+    rerenderEntireTree(store)
 }
-export let updateNewPostText = (newText: string) => {
+export const updateNewPostText = (newText: string) => {
      store.profilePage.newPostText=newText
-    renderTree(store)
+    rerenderEntireTree(store)
+}
+export const subscriber=(observer:(store: StoreType) => void)=>{
+rerenderEntireTree=observer
 }

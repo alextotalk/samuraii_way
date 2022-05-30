@@ -1,9 +1,10 @@
 import React from 'react';
 import './index.css';
 import {PostType} from "./components/Contents/Posts/Posts";
-
-import {renderTree} from "./render";
-import {store} from "./Redux/State";
+import {addPost, store, subscriber, updateNewPostText} from "./Redux/State";
+import ReactDOM from "react-dom";
+import {BrowserRouter} from "react-router-dom";
+import App from "./App";
 
 export  type MessagesType = {
     id: string
@@ -21,7 +22,7 @@ export type DialogsPageType = {
 }
 export type ProfilePageType = {
     posts: PostType[]
-    newPostText:string
+    newPostText: string
 
 }
 export type StoreType = {
@@ -30,4 +31,13 @@ export type StoreType = {
 
 }
 
-renderTree( store )
+let renderTree = (store: StoreType) => {
+    ReactDOM.render(
+        <BrowserRouter>
+            <App state={store} addPost={addPost} updateNewPostText={updateNewPostText}/>
+        </BrowserRouter>,
+        document.getElementById('root')
+    );
+}
+renderTree(store)
+subscriber(renderTree)

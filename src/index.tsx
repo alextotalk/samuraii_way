@@ -1,10 +1,10 @@
 import React from 'react';
 import './index.css';
 import {PostType} from "./components/Contents/Posts/Posts";
-import {addPost, store, subscriber, updateNewPostText} from "./Redux/State";
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
+import {store} from "./Redux/State";
 
 export  type MessagesType = {
     id: string
@@ -12,32 +12,23 @@ export  type MessagesType = {
 }
 
 export  type DialogsItemType = {
-    id: string
-    name: string
+    id?: string
+    name?: string
 }
 
-export type DialogsPageType = {
-    messages: MessagesType[]
-    dialogsItem: DialogsItemType[]
-}
-export type ProfilePageType = {
-    posts: PostType[]
-    newPostText: string
 
-}
-export type StoreType = {
-    profilePage: ProfilePageType
-    dialogsPage: DialogsPageType
+console.log("hi")
 
-}
-
-let renderTree = (store: StoreType) => {
+ let renderTree = ( ) => {
     ReactDOM.render(
+        <React.StrictMode>
         <BrowserRouter>
-            <App state={store} addPost={addPost} updateNewPostText={updateNewPostText}/>
-        </BrowserRouter>,
+             <App state={store.getState()} dispatch={store.dispatch.bind(store)}/>
+        </BrowserRouter>
+        </React.StrictMode>,
+
         document.getElementById('root')
     );
 }
-renderTree(store)
-subscriber(renderTree)
+store.subscriber(renderTree)
+renderTree()

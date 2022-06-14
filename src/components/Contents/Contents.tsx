@@ -1,25 +1,23 @@
-import React  from "react";
+import React from "react";
 import m from "./Contents.module.css"
 import {Posts} from "./Posts/Posts";
 import {Dialogs} from "./Dialogs/Dialogs";
 import {Route} from "react-router-dom";
-import {StoreType} from "../../index";
+import {StateType} from "../../Redux/State";
 
 type ContentsPropsType = {
-    state: StoreType
-    addPost: () => void
-    updateNewPostText: (newText: string) => void
-
+    state: StateType
+    dispatch: any
 }
 
 export const Contents: React.FC<ContentsPropsType> = (props) => {
     return (
         <div className={m.Contents}>
             <Route
-                render={() => <Posts updateNewPostText={props.updateNewPostText} posts={props.state.profilePage.posts}
-                                     newPostText={props.state.profilePage.newPostText} addPost={props.addPost}/>}
+                render={() => <Posts dispatch={props.dispatch} posts={props.state.profilePage.posts}
+                                     newPostText={props.state.profilePage.newPostText}/>}
                 path='/posts'></Route>
-            <Route render={() => <Dialogs dialogs={props.state.dialogsPage} addPost={props.addPost}/>}
+            <Route render={() => <Dialogs dispatch={props.dispatch} dialogs={props.state.dialogsPage}/>}
                    path='/dialogs'></Route>
         </div>
     );

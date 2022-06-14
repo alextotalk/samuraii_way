@@ -4,12 +4,11 @@ import {Header} from "./components/Header/Header";
 import {List} from "./components/NavBar/List";
 import {Footer} from "./components/Footer/Footer";
 import {Contents} from "./components/Contents/Contents";
-import {StoreType} from "./index";
+import {StateType} from "./Redux/State";
 
 type AppPropsType = {
-    state: StoreType
-    addPost: () => void
-    updateNewPostText: (newText: string) => void
+    state: StateType
+    dispatch:any
 }
 
 function App(props: AppPropsType) {
@@ -18,7 +17,7 @@ function App(props: AppPropsType) {
             <div className="s"></div>
             <Header/>
             <List/>
-            <Contents state={props.state} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>
+            <Contents state={props.state} dispatch={props.dispatch}  />
             <Footer/>
             <div className="x"></div>
         </div>

@@ -1,10 +1,10 @@
 import m from "./Dialogs.module.css"
 import {DialogsItems} from "./DialogsItems/DialogsItems";
 import {DialogsMessages} from "./DialogsItemsMassagers/DialogsMessages";
-import {DialogsPageType} from "../../../Redux/State";
+import {ActionsTypes, DialogsPageType} from "../../../Redux/State";
  type DialogsPagePropsType={
     dialogs:DialogsPageType
-    dispatch: any
+    dispatch: (action: ActionsTypes) => void
 
 }
 

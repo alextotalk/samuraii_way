@@ -4,20 +4,20 @@ import {Header} from "./components/Header/Header";
 import {List} from "./components/NavBar/List";
 import {Footer} from "./components/Footer/Footer";
 import {Contents} from "./components/Contents/Contents";
-import {StateType} from "./Redux/State";
+ import {store} from "./Redux/reduxStore";
+
 
 type AppPropsType = {
-    state: StateType
-    dispatch:any
-}
+    state: ReturnType<typeof store.getState>
+ }
+const App: React.FC<AppPropsType> =(props) =>{
 
-function App(props: AppPropsType) {
     return (
         <div className="app-wrapper">
             <div className="s"></div>
             <Header/>
             <List/>
-            <Contents state={props.state} dispatch={props.dispatch}  />
+            <Contents  state={props.state} dispatch={store.dispatch.bind(props.state)} />
             <Footer/>
             <div className="x"></div>
         </div>

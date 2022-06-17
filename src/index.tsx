@@ -1,34 +1,26 @@
 import React from 'react';
 import './index.css';
-import {PostType} from "./components/Contents/Posts/Posts";
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
-import {store} from "./Redux/State";
+import {store} from "./Redux/reduxStore";
 
-export  type MessagesType = {
-    id: string
-    massager: string
-}
-
-export  type DialogsItemType = {
-    id?: string
-    name?: string
-}
+export type RootState = ReturnType<typeof store.getState>
 
 
-console.log("hi")
-
- let renderTree = ( ) => {
+let renderTree = (state: RootState) => {
     ReactDOM.render(
         <React.StrictMode>
-        <BrowserRouter>
-             <App state={store.getState()} dispatch={store.dispatch.bind(store)}/>
-        </BrowserRouter>
+            <BrowserRouter>
+                <App state={state}/>
+            </BrowserRouter>
         </React.StrictMode>,
 
         document.getElementById('root')
     );
 }
-store.subscriber(renderTree)
-renderTree()
+renderTree(store.getState())
+store.subscribe(() => {
+    let state = store.getState()
+    renderTree(state)
+})

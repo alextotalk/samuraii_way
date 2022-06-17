@@ -1,23 +1,34 @@
 import {v1} from "uuid";
+import {ActionsTypes, ProfilePageType} from "./State";
 
-export const profilePageReducer= (state: { posts: any; newPostText: any }, action: { type: string; newText?: string })=>{
+export type UpdateNewPostTextActionType = ReturnType<typeof updateNewPostTextAC>
+export type AddPostActionType = ReturnType<typeof addPostAC>
+let initialState:ProfilePageType={posts: [
+        {id: '1', massager: 'Hi!!!', likesCount: '23'},
+        {id: '2', massager: 'Hello!!!', likesCount: '23'},
+        {id: '3', massager: 'How are you!!!', likesCount: '23'},
+    ],
+    newPostText: ''
+}
+
+export const profilePageReducer = (state: ProfilePageType=initialState, action: ActionsTypes) => {
     switch (action.type) {
-        case (action.type === "ADD_POST") :
-            let newPost = {id: v1(), massager:state.newPostText, likesCount: '443'}
+        case  "ADD_POST" :
+            let newPost = {id: v1(), massager: state.newPostText, likesCount: '443'}
             state.posts.push(newPost)
             state.newPostText = ''
             return state
 
-        case (action.type === "UPDATE_NEW_POST_TEXT") :
-             state.newPostText = action.newText
+        case  "UPDATE_NEW_POST_TEXT"  :
+            state.newPostText = action.newText
             return state
 
         default:
             return state
     }
 }
-let UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT"
-export let updateNewPostTextAC = (text: string) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT"
+export let updateNewPostTextAC = (text: string) => ({type: UPDATE_NEW_POST_TEXT, newText: text}) as const
 
-let ADD_POST = "ADD_POST"
-export let addPostAC = () => ({type: ADD_POST})
+const ADD_POST = "ADD_POST"
+export let addPostAC = () => ({type: ADD_POST}) as const

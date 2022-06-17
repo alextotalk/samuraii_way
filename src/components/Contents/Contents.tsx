@@ -3,11 +3,12 @@ import m from "./Contents.module.css"
 import {Posts} from "./Posts/Posts";
 import {Dialogs} from "./Dialogs/Dialogs";
 import {Route} from "react-router-dom";
-import {StateType} from "../../Redux/State";
+import {ActionsTypes} from "../../Redux/State";
+import {store} from "../../Redux/reduxStore";
 
 type ContentsPropsType = {
-    state: StateType
-    dispatch: any
+    state: ReturnType<typeof store.getState>
+    dispatch: (action: ActionsTypes) => void
 }
 
 export const Contents: React.FC<ContentsPropsType> = (props) => {

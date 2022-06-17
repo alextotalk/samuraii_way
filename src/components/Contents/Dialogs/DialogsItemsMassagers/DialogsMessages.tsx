@@ -1,14 +1,14 @@
 import m from "../Dialogs.module.css";
 import React, {ChangeEvent} from "react";
-import {MessagesType} from "../../../../index";
-import {TextArea} from "../../../ReusdComponents/TextArea/TextArea";
+ import {TextArea} from "../../../ReusdComponents/TextArea/TextArea";
 import {Button} from "../../../ReusdComponents/Button/Button";
 import {addMessageAC, mewMessageBodyAC} from "../../../../Redux/dialogsPageReducer";
+import {ActionsTypes, MessagesType} from "../../../../Redux/State";
 
 
 type PropsMessagesType = {
     messages: MessagesType[]
-    dispatch: any
+    dispatch: (action: ActionsTypes) => void
     mewMessageBody:string
 
 }

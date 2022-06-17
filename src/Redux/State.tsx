@@ -1,9 +1,18 @@
-import {DialogsItemType, MessagesType,} from "../index";
-import {v1} from "uuid";
 import {PostType} from "../components/Contents/Posts/Posts";
-import {profilePageReducer} from "./profilePageReducer";
-import {dialogsPageReducer} from "./dialogsPageReducer";
+import {AddPostActionType, profilePageReducer, UpdateNewPostTextActionType} from "./profilePageReducer";
+import {AddMessageActionType, dialogsPageReducer, UpdateNewMessageBodyActionType} from "./dialogsPageReducer";
 import {sidebarReducer} from "./sidebarReducer";
+
+export  type MessagesType = {
+    id: string
+    massager: string
+}
+
+export  type DialogsItemType = {
+    id: string
+    name: string
+}
+
 
 export type StateType = {
     profilePage: ProfilePageType
@@ -13,7 +22,7 @@ export type StateType = {
 }
 export type DialogsPageType = {
     messages: MessagesType[]
-    dialogsItem?: DialogsItemType[]
+    dialogsItem: DialogsItemType[]
     mewMessageBody: string
 
 }
@@ -23,13 +32,15 @@ export type ProfilePageType = {
 
 }
 
-type StoreType = {
+export type StoreType = {
     _state: StateType
     getState: () => StateType
     _callSubscriber: () => void
     subscriber: (callback: () => void) => void
-    dispatch: any
+    dispatch: (action: ActionsTypes) => void
 }
+export type ActionsTypes = UpdateNewMessageBodyActionType | AddMessageActionType |
+    UpdateNewPostTextActionType | AddPostActionType
 
 export let store: StoreType = {
     _state: {
@@ -68,9 +79,9 @@ export let store: StoreType = {
 
     },
 
-    dispatch(action: { type: string; newText?: string; }) {
+    dispatch(action: ActionsTypes) {
         this._state.profilePage = profilePageReducer(this._state.profilePage, action)
-        this._state.dialogsPage = dialogsPageReducer(this._state.profilePage, action)
+        this._state.dialogsPage = dialogsPageReducer(this._state.dialogsPage, action)
         this._state.sidebar = sidebarReducer(this._state.sidebar, action)
         this._callSubscriber()
     }

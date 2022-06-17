@@ -15,7 +15,7 @@ export  type PostType = {
 type PostsPropsType = {
     posts: PostType[]
     newPostText: string
-     dispatch: any
+    dispatch: any
 }
 
 export function Posts(props: PostsPropsType) {
@@ -23,7 +23,7 @@ export function Posts(props: PostsPropsType) {
 
 
     let getNewPost = (e: ChangeEvent<HTMLTextAreaElement>) => {
-         props.dispatch(updateNewPostTextAC(e.currentTarget.value))
+        props.dispatch(updateNewPostTextAC(e.currentTarget.value))
     }
     let addNewPost = () => {
         props.dispatch(addPostAC())

@@ -34,8 +34,8 @@
     padding-bottom: 0;
 }
 
-.active{
-    color: gold;
+.active :active{
+    color: gold ;
 }
 .widget a {
     text-decoration: none;
